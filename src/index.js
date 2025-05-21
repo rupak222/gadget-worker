@@ -31,33 +31,30 @@ export default {
     // optional pause
     await new Promise((r) => setTimeout(r, 1000));
 
-    const screenshot = await page1.screenshot({ fullPage: true, type: 'png' });
-		return new Response(screenshot, { headers: { 'Content-Type': 'image/png' } });
-
     // === SECOND PAGE ===
-    // const page2 = await browser.newPage();
-    // const cookies2 = [
-    //   {
-    //     name: 'session',
-    //     value: 'EhKP60UXE14hutdfD3rznAlRZhaXbftwa1jlCXHVbWJmoMOR7YR1AFsuozjz8hW37bsLf5EoK%2Fbe3cD8zcuPCXxlR8BnhsAUtLHK7splP6GyYRTaNVBAX0vMMNw%3D%3BaZmEmQwLCVOpciD9a9UEbwPL6jEo5Bgk',
-    //     domain: '.customcode-pk.gadget.app',
-    //     path: '/',
-    //     expires: 1748012673, // Friday, May 23, 2025 8:34:33 PM
-    //     httpOnly: true,
-    //     secure: true,
-    //     sameSite: 'None',
-    //   },
-    // ];
-    // await page2.setViewport({ width: 1920, height: 1080 });
-    // await page2.setCookie(...cookies2);
-    // await page2.goto('https://customcode-pk.gadget.app/edit/development', {
-    //   waitUntil: 'networkidle2',
-    // });
+    const page2 = await browser.newPage();
+    const cookies2 = [
+      {
+        name: 'session',
+        value: 'EhKP60UXE14hutdfD3rznAlRZhaXbftwa1jlCXHVbWJmoMOR7YR1AFsuozjz8hW37bsLf5EoK%2Fbe3cD8zcuPCXxlR8BnhsAUtLHK7splP6GyYRTaNVBAX0vMMNw%3D%3BaZmEmQwLCVOpciD9a9UEbwPL6jEo5Bgk',
+        domain: '.customcode-pk.gadget.app',
+        path: '/',
+        expires: 1748012673, // Friday, May 23, 2025 8:34:33 PM
+        httpOnly: true,
+        secure: true,
+        sameSite: 'None',
+      },
+    ];
+    await page2.setViewport({ width: 1920, height: 1080 });
+    await page2.setCookie(...cookies2);
+    await page2.goto('https://customcode-pk.gadget.app/edit/development', {
+      waitUntil: 'networkidle2',
+    });
 
-    // // again, optional pause
-    // await new Promise((r) => setTimeout(r, 1000));
+    // again, optional pause
+    await new Promise((r) => setTimeout(r, 1000));
 
-    // await browser.close();
-    // return new Response('Done!');
+    await browser.close();
+    return new Response('Done!');
   },
 };
