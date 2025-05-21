@@ -9,7 +9,22 @@
 	"compatibility_date": "2025-05-13",
 	"observability": {
 		"enabled": true
-	}
+	},
+
+	"workers_dev": true,
+  	"compatibility_flags": [
+    	"nodejs_compat_v2"
+  	],
+  	"browser": {
+    	"binding": "MYBROWSER"
+  	},
+	"limits": {
+    	"cpu_ms": 50000, 
+	},
+	"triggers": {
+    	"crons": ["*/20 * * * *"]
+  	}
+
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
